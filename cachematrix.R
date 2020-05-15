@@ -1,15 +1,35 @@
-## Put comments here that give an overall description of what your
-## functions do
+## A collection of functions designed to take a squared matrix capable
+## to get inversed and calculate the inverse if we haven't been calculate it before
+## and store it after done to avoid the repeat of calculation when we need it
 
-## Write a short comment describing this function
+## makeCachMatrix take a matrix to store and return the summary we need into a list
 
 makeCacheMatrix <- function(x = matrix()) {
+    inv <- NULL
+    set <- function(y){
+        inv <<- NULL
+        x <<- y
+    }
+    get <- function() x
+    setinv <- function(inver) inv <<- inver
+    getinv <- function() inv
+    list(set=set,get=get,getinv=getinv,setinv=setinv)
 
 }
 
 
-## Write a short comment describing this function
+## cacheSolve check if the special matrix we made have its inversed 
+## calculated to return it or it calcultes it
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+    inv <- x$getinv()
+    if(!is.null(inv)){
+        message("getting cached data")
+        return(inv)
+    }
+    data <- x$get()
+    inv <- solve(data, ...)
+    x$setinv(inv)
+    inv
 }

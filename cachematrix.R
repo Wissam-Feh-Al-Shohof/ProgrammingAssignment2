@@ -3,6 +3,8 @@
 ## and store it after done to avoid the repeat of calculation when we need it
 
 ## makeCachMatrix take a matrix to store and return the summary we need into a list
+## including the matrix and its inverse if available or a decleration if it's not
+## with special funcctions to deal with data provided.
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
@@ -19,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## cacheSolve check if the special matrix we made have its inversed 
-## calculated to return it or it calcultes it
+## calculated to return it( with a decleration message) or calcultes it and return the result
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'

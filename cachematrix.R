@@ -7,7 +7,9 @@
 ## with special funcctions to deal with data provided.
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv <- NULL
+    ## return a list contains functions to set and get the special matrix
+    ## And get and set the result of inversed 'x' functions
+    inv <- NULL         #inv for inverse initialize for zero
     set <- function(y){
         inv <<- NULL
         x <<- y
